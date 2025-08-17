@@ -1,4 +1,4 @@
-import { Model, DataTypes } from "sequelize";
+import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../config";
 import { Team } from "./team.model";
 
@@ -22,6 +22,7 @@ Match.init(
   },
   { sequelize, modelName: "match" }
 );
+
 Team.hasMany(Match, { foreignKey: "homeTeamId", as: "homeMatches" });
 Team.hasMany(Match, { foreignKey: "awayTeamId", as: "awayMatches" });
 Match.belongsTo(Team, { foreignKey: "homeTeamId", as: "homeTeam" });

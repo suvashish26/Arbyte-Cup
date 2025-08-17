@@ -5,6 +5,7 @@ export class Team extends Model {
   public id!: number;
   public name!: string;
 }
+
 Team.init(
   {
     id: {
