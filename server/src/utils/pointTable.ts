@@ -1,5 +1,9 @@
-import { Match } from "../models/match.model";
-import { Team } from "../models/team.model";
+import { sequelize } from "../config/databases";
+import TeamFactory from "../models/Team";
+import MatchFactory from "../models/Match";
+
+const Team = TeamFactory(sequelize);
+const Match = MatchFactory(sequelize);
 
 export async function calculatePointsTable() {
   const teams = await Team.findAll();
